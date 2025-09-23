@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BabuBhaiKundan Tools - Your All-in-One Hub</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #1a1a1a;
+            --bg-light: #242424;
+            --border-color: #3a3a3a;
+            --text-primary: #f0f0f0;
+            --text-secondary: #a0a0a0;
+            --accent-image: #00e6b8;
+            --accent-pdf: #ff6b6b;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+        .main-container {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+        }
+        .header { margin-bottom: 3rem; }
+        .header h1 {
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent-image), var(--accent-pdf));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header p { color: var(--text-secondary); margin-top: 0.5rem; font-size: 1.1rem; }
+
+        .tool-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .tool-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-card:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, var(--glow-color, #fff) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            transition: width 0.5s ease, height 0.5s ease;
+            transform: translate(-50%, -50%);
+            opacity: 0.2;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .tool-card:hover:before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .image-tool { --glow-color: var(--accent-image); }
+        .pdf-tool { --glow-color: var(--accent-pdf); }
+
+        .tool-icon {
+            margin-bottom: 1.5rem;
+            height: 60px;
+        }
+        .tool-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .tool-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .tool-cta {
+            background: #444;
+            color: var(--text-primary);
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .tool-card.image-tool:hover .tool-cta { background-color: var(--accent-image); color: var(--bg-dark); }
+        .tool-card.pdf-tool:hover .tool-cta { background-color: var(--accent-pdf); color: var(--bg-dark); }
+
+        .developer-branding {
+            display: flex;
+            justify-content: center;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .tool-container { grid-template-columns: 1fr; }
+            .header p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <header class="header">
+            <h1>BabuBhaiKundan Tools</h1>
+            <p>Your All-in-One Hub for Image and PDF Utilities</p>
+        </header>
+
+        <main>
+            <div class="tool-container">
+                <!-- Image Tool Card -->
+                <a href="image-tool.html" class="tool-card image-tool">
+                    <img src="https://www.svgrepo.com/show/452775/image-picture.svg" alt="Image Icon" class="tool-icon">
+                    <h2>Image Tool</h2>
+                    <p>Compress, resize, crop, and edit your images with professional precision. Supports PX, CM, MM units and aspect ratio lock.</p>
+                    <span class="tool-cta">Open Image Tool</span>
+                </a>
+
+                <!-- PDF Tool Card -->
+                <a href="pdf-tool.html" class="tool-card pdf-tool">
+                    <img src="https://www.svgrepo.com/show/452784/pdf-document.svg" alt="PDF Icon" class="tool-icon">
+                    <h2>Pdf Tool</h2>
+                    <p>Compress any type of PDF file to an exact custom size in KB. Perfect for reducing large files without losing clarity.</p>
+                    <span class="tool-cta">Open Pdf Tool</span>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <footer class="developer-branding">
+        <a href="https://t.me/kundan_yadav_bot" target="_blank" style="display: flex;align-items: center;gap: 6px;background: #1a1a1a;padding: 6px 12px;border-radius: 12px;text-decoration: none;box-shadow: 0 4px 10px rgba(0,0,0,0.3);transition: all 0.3s ease;white-space: nowrap;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="width: 18px;height: 18px;">
+            <span style="color: #00ffc8;font-weight: bold;font-size: 15px;">Developer💀:-</span>
+            <span style="display: flex;align-items: center;gap: 5px;color: #FFD700;;font-size: 15px;font-weight: bold;">
+                𝕂𝕦𝕟𝕕𝕒𝕟 𝕐𝕒𝕕𝕒𝕧
+                <img src="https://s.tfrbot.com/h/gL5VTi" alt="𝕂𝕦𝕟𝕕𝕒𝕟 𝕐𝕒𝕕𝕒𝕧" style="width: 20px;height: 20px;border-radius: 50%;object-fit: cover;">
+            </span>
+        </a>
+    </footer>
+
+</body>
+</html>

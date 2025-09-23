@@ -140,16 +140,14 @@
 
         <main>
             <div class="tool-container">
-                <!-- Image Tool Card -->
-                <a href="image-tool.html" class="tool-card image-tool">
+                <a href="image-tool.html" class="tool-card image-tool" onclick="notifyParent('image-tool.html')">
                     <img src="https://www.svgrepo.com/show/452775/image-picture.svg" alt="Image Icon" class="tool-icon">
                     <h2>Image Tool</h2>
                     <p>Compress, resize, crop, and edit your images with professional precision. Supports PX, CM, MM units and aspect ratio lock.</p>
                     <span class="tool-cta">Open Image Tool</span>
                 </a>
 
-                <!-- PDF Tool Card -->
-                <a href="pdf-tool.html" class="tool-card pdf-tool">
+                <a href="pdf-tool.html" class="tool-card pdf-tool" onclick="notifyParent('pdf-tool.html')">
                     <img src="https://www.svgrepo.com/show/452784/pdf-document.svg" alt="PDF Icon" class="tool-icon">
                     <h2>Pdf Tool</h2>
                     <p>Compress any type of PDF file to an exact custom size in KB. Perfect for reducing large files without losing clarity.</p>
@@ -160,7 +158,7 @@
     </div>
 
     <footer class="developer-branding">
-        <a href="https://t.me/kundan_yadav_bot" target="_blank" style="display: flex;align-items: center;gap: 6px;background: #1a1a1a;padding: 6px 12px;border-radius: 12px;text-decoration: none;box-shadow: 0 4px 10px rgba(0,0,0,0.3);transition: all 0.3s ease;white-space: nowrap;">
+        <a href="https://t.me/kundan_yadav_bot" target="_top" style="display: flex;align-items: center;gap: 6px;background: #1a1a1a;padding: 6px 12px;border-radius: 12px;text-decoration: none;box-shadow: 0 4px 10px rgba(0,0,0,0.3);transition: all 0.3s ease;white-space: nowrap;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="width: 18px;height: 18px;">
             <span style="color: #00ffc8;font-weight: bold;font-size: 15px;">Developer💀:-</span>
             <span style="display: flex;align-items: center;gap: 5px;color: #FFD700;;font-size: 15px;font-weight: bold;">
@@ -170,5 +168,20 @@
         </a>
     </footer>
 
-</body>
+    <script>
+        function notifyParent(path) {
+            // ZAROORI: Is URL ko apne asli Blogger URL se badlein
+            const blogUrl = 'https://AAPKE-BLOG-KA-URL.blogspot.com';
+
+            // Aapki GitHub Pages 'tools' folder ke andar hai, isliye path ko sahi banate hain
+            const fullPath = '/tools/' + path;
+
+            // Parent window (Blogger) ko message bhejein
+            parent.postMessage({
+                type: 'navigation',
+                path: fullPath
+            }, blogUrl);
+        }
+    </script>
+    </body>
 </html>
